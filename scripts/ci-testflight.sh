@@ -88,11 +88,7 @@ plutil -extract CFBundleShortVersionString raw -o - "$RUNNER_TEMP/ipa-info.plist
 plutil -extract CFBundleVersion raw -o - "$RUNNER_TEMP/ipa-info.plist" || true
 
 echo "== Upload to TestFlight"
-if ! xcrun altool --upload-app -f "$IPA" -t ios \
-      --apiKey "$KEY_ID" --apiIssuer "$ISSUER_ID" --output-format json; then
-  echo "altool failed; trying iTMSTransporter"
-  xcrun iTMSTransporter -m upload -assetFile "$IPA" \
-    -apiKey "$KEY_ID" -apiIssuer "$ISSUER_ID" -v informational
-fi
+xcrun altool --upload-app -f "$IPA" -t ios \
+  --apiKey "$KEY_ID" --apiIssuer "$ISSUER_ID" --output-format json
 
 echo "== Done: build $BUILD_NUMBER uploaded"
