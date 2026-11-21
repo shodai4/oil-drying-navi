@@ -15,8 +15,10 @@
 | `project.yml` | XcodeGen 定義（Bundle ID: `com.shodai4.oildryingnavi`、iOS 17.0+） |
 | `Sources/OilDryingNaviApp.swift` | アプリのエントリポイント |
 | `Sources/ContentView.swift` | 質問・計算・結果・通知予約 |
-| `Resources/Info.plist` | アプリの設定 |
-| `.github/workflows/ios-build.yml` | GitHub Actions でのビルド確認 |
+| `Resources/Info.plist` | アプリの設定（`ITSAppUsesNonExemptEncryption = false`） |
+| `Resources/Assets.xcassets` | アプリアイコン（AppIcon 1024px） |
+| `scripts/ci-testflight.sh` | アーカイブ・書き出し・TestFlight アップロードの本体 |
+| `.github/workflows/ios-build.yml` | GitHub Actions（main への push で TestFlight へ自動配信） |
 
 ## 計算
 
@@ -38,3 +40,19 @@ xcodegen generate
 xcodebuild build -project OilDryingNavi.xcodeproj -scheme OilDryingNavi \
   -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO
 ```
+
+## TestFlight 配信
+
+`main` へ push すると GitHub Actions が `scripts/ci-testflight.sh` を実行し、アーカイブ → 書き出し → TestFlight へのアップロードまで進む。ビルド番号には `github.run_number` を使う。
+
+必要なリポジトリ Secrets:
+
+| 名前 | 内容 |
+| --- | --- |
+| `APP_STORE_CONNECT_KEY_ID` | App Store Connect API キーの Key ID |
+| `APP_STORE_CONNECT_ISSUER_ID` | Issuer ID |
+| `APP_STORE_CONNECT_PRIVATE_KEY` | AuthKey_*.p8 の中身 |
+| `APPLE_TEAM_ID` | チーム ID |
+
+App Store Connect: Apple ID `6837710186`／Bundle ID `com.shodai4.oildryingnavi`／TestFlight 内部グループ「開発テスト」。
+
