@@ -1,5 +1,6 @@
 import SwiftUI
 import UIKit
+import EventKit
 import UserNotifications
 
 // MARK: - 係数と計算
@@ -12,6 +13,7 @@ struct DryingOption: Identifiable {
 }
 
 enum DryingQuestion: CaseIterable {
+    case ground
     case medium
     case pigment
     case thickness
@@ -19,21 +21,25 @@ enum DryingQuestion: CaseIterable {
 
     var title: String {
         switch self {
+        case .ground:
+            return "下地は？"
         case .medium:
-            return "オイル・メディウムは？"
+            return "使った画用液は？"
         case .pigment:
-            return "主な絵の具は？"
+            return "主な顔料は？"
         case .thickness:
             return "塗りの厚みは？"
         case .environment:
-            return "部屋の環境は？"
+            return "部屋の状態は？"
         }
     }
 
     var caption: String {
         switch self {
+        case .ground:
+            return "下地の吸い込みで、乾く速さが変わる。"
         case .medium:
-            return "下地に混ぜた油や、描きながら足したメディウム。"
+            return "描きながら足した油やメディウム。"
         case .pigment:
             return "画面の大部分を占める色で選ぶ。"
         case .thickness:
@@ -45,31 +51,36 @@ enum DryingQuestion: CaseIterable {
 
     var options: [DryingOption] {
         switch self {
+        case .ground:
+            return [
+                DryingOption(label: "吸収性（膠・石膏）", factor: 0.7),
+                DryingOption(label: "標準（麻・綿）", factor: 1.0),
+                DryingOption(label: "非吸収（油性）", factor: 1.3)
+            ]
         case .medium:
             return [
-                DryingOption(label: "リンシードオイル", factor: 1.0),
-                DryingOption(label: "ポピーオイル", factor: 1.5),
-                DryingOption(label: "調合油・速乾タイプ", factor: 0.5),
-                DryingOption(label: "揮発性油だけ", factor: 0.2),
-                DryingOption(label: "油は使っていない", factor: 0.8)
+                DryingOption(label: "アルキド樹脂", factor: 0.4),
+                DryingOption(label: "リンシード", factor: 1.0),
+                DryingOption(label: "ポピー・スタンド", factor: 1.6),
+                DryingOption(label: "揮発性のみ", factor: 0.3)
             ]
         case .pigment:
             return [
-                DryingOption(label: "アンバー・コバルト系", factor: 0.6),
-                DryingOption(label: "標準的な色", factor: 1.0),
-                DryingOption(label: "チタニウムホワイト・赤系", factor: 1.8)
+                DryingOption(label: "速乾（土・コバルト）", factor: 0.6),
+                DryingOption(label: "標準", factor: 1.0),
+                DryingOption(label: "遅乾（白・黒・紅）", factor: 2.0)
             ]
         case .thickness:
             return [
                 DryingOption(label: "薄塗り", factor: 0.6),
                 DryingOption(label: "標準", factor: 1.0),
-                DryingOption(label: "厚塗り・インパスト", factor: 2.5)
+                DryingOption(label: "厚塗り", factor: 2.5)
             ]
         case .environment:
             return [
-                DryingOption(label: "寒い・湿気がある", factor: 1.4),
-                DryingOption(label: "常温・ふつう", factor: 1.0),
-                DryingOption(label: "暖かい・風通しがよい", factor: 0.7)
+                DryingOption(label: "寒い・湿気", factor: 1.4),
+                DryingOption(label: "標準", factor: 1.0),
+                DryingOption(label: "暖かい・乾燥", factor: 0.7)
             ]
         }
     }
@@ -80,6 +91,7 @@ struct DryingResult {
     let overpaintDays: Int
     let varnishDays: Int
     let conditions: [String]
+    let hasCrackRisk: Bool
 
     init(options: [DryingOption]) {
         conditions = options.map { $0.label }
@@ -87,8 +99,12 @@ struct DryingResult {
         let product = options.reduce(1.0) { $0 * $1.factor }
         let touch = max(1, Int((3.0 * product).rounded()))
         touchDays = touch
-        overpaintDays = max(2, Int((Double(touch) * 2.0).rounded()))
-        varnishDays = min(180, max(30, touch * 10))
+        overpaintDays = touch * 2
+        varnishDays = min(180, max(30, touch * 60))
+
+        let groundFactor = options.first?.factor ?? 1.0
+        let mediumFactor = options.count > 1 ? options[1].factor : 1.0
+        hasCrackRisk = groundFactor < 1.0 && mediumFactor <= 0.3
     }
 
     var varnishText: String {
@@ -271,30 +287,104 @@ private struct OptionRow: View {
 
 // MARK: - 結果
 
-private enum ReminderAlert: String, Identifiable {
-    case denied
-    case failed
+private enum ResultAlert: String, Identifiable {
+    case notificationDenied
+    case notificationFailed
+    case calendarDenied
+    case calendarFailed
+    case reminderDenied
+    case reminderFailed
+    case googleFailed
 
     var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .notificationDenied:
+            return "通知が許可されていません"
+        case .notificationFailed:
+            return "通知を予約できませんでした"
+        case .calendarDenied:
+            return "カレンダーが許可されていません"
+        case .calendarFailed:
+            return "カレンダーに登録できませんでした"
+        case .reminderDenied:
+            return "リマインダーが許可されていません"
+        case .reminderFailed:
+            return "リマインダーに追加できませんでした"
+        case .googleFailed:
+            return "Googleカレンダーを開けませんでした"
+        }
+    }
+
+    var message: String {
+        switch self {
+        case .notificationDenied:
+            return "設定アプリでこのアプリの通知をオンにすると、指触乾燥の日に知らせられます。"
+        case .notificationFailed:
+            return "時間をおいて、もう一度お試しください。"
+        case .calendarDenied:
+            return "設定アプリでこのアプリのカレンダーへのアクセスを許可すると、予定日を登録できます。"
+        case .calendarFailed:
+            return "書き込めるカレンダーが見つかりませんでした。設定アプリでカレンダーのアカウントをご確認ください。"
+        case .reminderDenied:
+            return "設定アプリでこのアプリのリマインダーへのアクセスを許可すると、予定日を追加できます。"
+        case .reminderFailed:
+            return "書き込めるリマインダーのリストが見つかりませんでした。設定アプリでリマインダーのアカウントをご確認ください。"
+        case .googleFailed:
+            return "ブラウザでカレンダーを開けませんでした。時間をおいて、もう一度お試しください。"
+        }
+    }
+
+    var opensSettings: Bool {
+        switch self {
+        case .notificationDenied, .calendarDenied, .reminderDenied:
+            return true
+        default:
+            return false
+        }
+    }
 }
 
 struct ResultView: View {
     let result: DryingResult
     let onReset: () -> Void
 
-    @State private var scheduledLabel: String?
-    @State private var alertKind: ReminderAlert?
+    @State private var status: String?
+    @State private var alertKind: ResultAlert?
+    @State private var workTitle = ""
+    @State private var eventStore = EKEventStore()
     @Environment(\.openURL) private var openURL
+
+    private var trimmedWorkTitle: String {
+        workTitle.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    private var notesText: String {
+        "重ね塗りは約\(result.overpaintDays)日後、ワニス保護は\(result.varnishText)。\n条件：\(result.conditionSummary)"
+    }
 
     private var reminderDate: Date {
         Calendar.current.date(byAdding: .day, value: result.touchDays, to: Date()) ?? Date()
     }
 
-    private var reminderDateText: String {
+    private var dayText: String {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ja_JP")
-        formatter.dateFormat = "M月d日（E）10:00"
+        formatter.dateFormat = "M月d日（E）"
         return formatter.string(from: reminderDate)
+    }
+
+    private var reminderDateText: String {
+        "\(dayText)10:00"
+    }
+
+    private var eventTitle: String {
+        trimmedWorkTitle.isEmpty ? "油絵 指触乾燥目安" : "\(trimmedWorkTitle)：指触乾燥目安"
+    }
+
+    private var notificationTitle: String {
+        trimmedWorkTitle.isEmpty ? "指触乾燥のころです" : "\(trimmedWorkTitle)：指触乾燥のころです"
     }
 
     var body: some View {
@@ -333,25 +423,65 @@ struct ResultView: View {
                     .lineSpacing(3)
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.top, 14)
-                    .padding(.bottom, 18)
 
-                Button(action: scheduleReminder) {
-                    Text("リマインドを予約")
-                        .font(.system(size: 16, weight: .semibold))
-                        .foregroundStyle(Color.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 16)
+                if result.hasCrackRisk {
+                    Text("注意：吸収性の下地に揮発性の画用液だけを使うと、油分が吸われてもろくなり、亀裂や剥離の原因になります。")
+                        .font(.system(size: 12))
+                        .foregroundStyle(Color.naviWarn)
+                        .lineSpacing(3)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(12)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .background(
-                            RoundedRectangle(cornerRadius: 14, style: .continuous)
-                                .fill(Color.naviAccent)
+                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                .fill(Color.naviWarn.opacity(0.08))
                         )
+                        .padding(.top, 12)
                 }
-                .buttonStyle(.plain)
 
-                if let scheduledLabel {
-                    Text("\(scheduledLabel) に通知します")
+                TextField("作品名（任意）", text: $workTitle)
+                    .font(.system(size: 15))
+                    .foregroundStyle(Color.naviInk)
+                    .textInputAutocapitalization(.never)
+                    .autocorrectionDisabled()
+                    .submitLabel(.done)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 14)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12, style: .continuous)
+                            .fill(Color.white.opacity(0.65))
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12, style: .continuous)
+                            .strokeBorder(Color.naviLine, lineWidth: 1)
+                    )
+                    .padding(.top, 18)
+
+                VStack(spacing: 0) {
+                    ActionRow(text: "iOSカレンダーに登録", emphasized: true, action: addToCalendar)
+                    rowDivider
+                    ActionRow(text: "リマインダーに追加", emphasized: false, action: addToReminder)
+                    rowDivider
+                    ActionRow(text: "Googleカレンダーで開く", emphasized: false, action: openGoogleCalendar)
+                    rowDivider
+                    ActionRow(text: "通知を予約", emphasized: false, action: scheduleReminder)
+                }
+                .background(
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .fill(Color.white.opacity(0.7))
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .strokeBorder(Color.naviLine, lineWidth: 1)
+                )
+                .padding(.top, 10)
+
+                if let status {
+                    Text(status)
                         .font(.system(size: 12))
                         .foregroundStyle(Color.naviSub)
+                        .multilineTextAlignment(.center)
+                        .fixedSize(horizontal: false, vertical: true)
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding(.top, 10)
                 }
@@ -366,8 +496,8 @@ struct ResultView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
         }
         .scrollBounceBehavior(.basedOnSize)
-        .alert(alertTitle, isPresented: isShowingAlert) {
-            if alertKind == .denied {
+        .alert(alertKind?.title ?? "", isPresented: isShowingAlert) {
+            if alertKind?.opensSettings == true {
                 Button("設定を開く") {
                     if let url = URL(string: UIApplication.openSettingsURLString) {
                         openURL(url)
@@ -376,8 +506,14 @@ struct ResultView: View {
             }
             Button("閉じる", role: .cancel) {}
         } message: {
-            Text(alertMessage)
+            Text(alertKind?.message ?? "")
         }
+    }
+
+    private var rowDivider: some View {
+        Divider()
+            .overlay(Color.naviLine)
+            .padding(.leading, 16)
     }
 
     private func infoRow(title: String, value: String) -> some View {
@@ -394,8 +530,6 @@ struct ResultView: View {
         .padding(.vertical, 14)
     }
 
-    // MARK: 通知
-
     private var isShowingAlert: Binding<Bool> {
         Binding(
             get: { alertKind != nil },
@@ -403,16 +537,104 @@ struct ResultView: View {
         )
     }
 
-    private var alertTitle: String {
-        alertKind == .denied ? "通知が許可されていません" : "通知を予約できませんでした"
+    // MARK: カレンダー
+
+    private func addToCalendar() {
+        let store = eventStore
+        store.requestFullAccessToEvents { granted, _ in
+            DispatchQueue.main.async {
+                guard granted else {
+                    alertKind = .calendarDenied
+                    return
+                }
+                guard let calendar = store.defaultCalendarForNewEvents else {
+                    alertKind = .calendarFailed
+                    return
+                }
+                let day = Calendar.current.startOfDay(for: reminderDate)
+                let event = EKEvent(eventStore: store)
+                event.calendar = calendar
+                event.title = eventTitle
+                event.isAllDay = true
+                event.startDate = day
+                event.endDate = day
+                event.notes = notesText
+                do {
+                    try store.save(event, span: .thisEvent, commit: true)
+                    status = "カレンダーに登録しました（\(dayText)）"
+                } catch {
+                    alertKind = .calendarFailed
+                }
+            }
+        }
     }
 
-    private var alertMessage: String {
-        if alertKind == .denied {
-            return "設定アプリでこのアプリの通知をオンにすると、指触乾燥の日に知らせられます。"
+    // MARK: リマインダー
+
+    private func addToReminder() {
+        let store = eventStore
+        store.requestFullAccessToReminders { granted, _ in
+            DispatchQueue.main.async {
+                guard granted else {
+                    alertKind = .reminderDenied
+                    return
+                }
+                guard let calendar = store.defaultCalendarForNewReminders() else {
+                    alertKind = .reminderFailed
+                    return
+                }
+                var components = Calendar.current.dateComponents([.year, .month, .day], from: reminderDate)
+                components.hour = 10
+                components.minute = 0
+                components.second = 0
+
+                let reminder = EKReminder(eventStore: store)
+                reminder.calendar = calendar
+                reminder.title = eventTitle
+                reminder.notes = notesText
+                reminder.dueDateComponents = components
+                if let fireDate = Calendar.current.date(from: components) {
+                    reminder.addAlarm(EKAlarm(absoluteDate: fireDate))
+                }
+                do {
+                    try store.save(reminder, commit: true)
+                    status = "リマインダーに追加しました（\(reminderDateText)）"
+                } catch {
+                    alertKind = .reminderFailed
+                }
+            }
         }
-        return "時間をおいて、もう一度お試しください。"
     }
+
+    // MARK: Googleカレンダー
+
+    private func openGoogleCalendar() {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "yyyyMMdd"
+        let start = formatter.string(from: reminderDate)
+        let endDay = Calendar.current.date(byAdding: .day, value: 1, to: reminderDate) ?? reminderDate
+        let end = formatter.string(from: endDay)
+
+        var components = URLComponents(string: "https://calendar.google.com/calendar/render")
+        components?.queryItems = [
+            URLQueryItem(name: "action", value: "TEMPLATE"),
+            URLQueryItem(name: "text", value: eventTitle),
+            URLQueryItem(name: "dates", value: "\(start)/\(end)"),
+            URLQueryItem(name: "details", value: notesText)
+        ]
+        guard let url = components?.url else {
+            alertKind = .googleFailed
+            return
+        }
+        openURL(url) { accepted in
+            if !accepted {
+                alertKind = .googleFailed
+            }
+        }
+    }
+
+    // MARK: 通知
 
     private func scheduleReminder() {
         let center = UNUserNotificationCenter.current()
@@ -426,12 +648,12 @@ struct ResultView: View {
                         if granted {
                             enqueue()
                         } else {
-                            alertKind = .denied
+                            alertKind = .notificationDenied
                         }
                     }
                 }
             default:
-                DispatchQueue.main.async { alertKind = .denied }
+                DispatchQueue.main.async { alertKind = .notificationDenied }
             }
         }
     }
@@ -440,7 +662,7 @@ struct ResultView: View {
         let center = UNUserNotificationCenter.current()
 
         let content = UNMutableNotificationContent()
-        content.title = "指触乾燥のころです"
+        content.title = notificationTitle
         content.body = "塗面にそっと触れて、乾きを確かめてみましょう。"
         content.sound = .default
 
@@ -468,13 +690,40 @@ struct ResultView: View {
         center.add(request) { error in
             DispatchQueue.main.async {
                 if error == nil {
-                    scheduledLabel = label
+                    status = "通知を予約しました（\(label)）"
                 } else {
-                    scheduledLabel = nil
-                    alertKind = .failed
+                    alertKind = .notificationFailed
                 }
             }
         }
+    }
+}
+
+private struct ActionRow: View {
+    let text: String
+    let emphasized: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 12) {
+                Text(text)
+                    .font(.system(size: 15, weight: emphasized ? .semibold : .regular))
+                    .foregroundStyle(Color.naviInk)
+                Spacer(minLength: 0)
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 15)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(ActionRowStyle())
+    }
+}
+
+private struct ActionRowStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .background(Color.naviAccent.opacity(configuration.isPressed ? 0.08 : 0))
     }
 }
 
@@ -486,6 +735,7 @@ extension Color {
     static let naviSub = Color(red: 0.420, green: 0.400, blue: 0.370)
     static let naviLine = Color(red: 0.860, green: 0.840, blue: 0.800)
     static let naviAccent = Color(red: 0.480, green: 0.290, blue: 0.180)
+    static let naviWarn = Color(red: 0.620, green: 0.330, blue: 0.160)
 }
 
 #Preview {
