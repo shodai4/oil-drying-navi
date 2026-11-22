@@ -99,6 +99,7 @@ let plain = DryingResult(options: standard)
 check(plain.touchDays == 3, "標準条件の目安が3日ではない: \(plain.touchDays)")
 
 if let cadmium = paint("カドミウム レッド"), let phthalo = paint("フタロ ブルー"), let crimson = paint("クリムソン レーキ") {
+    // フタロ ブルーは公式Ⅰ（2日前後）、カドミウム レッドは公式Ⅳ（5日前後）
     let holbein = DryingResult(options: standard, catalogColors: [cadmium])
     check(holbein.touchDays == 5, "公式IVの色が5日にならない: \(holbein.touchDays)")
     check(holbein.conditions[2].contains("カドミウム レッド"), "条件の表示に色名がない")
@@ -120,7 +121,10 @@ if let cadmium = paint("カドミウム レッド"), let phthalo = paint("フタ
     var thickOptions = standard
     thickOptions[3] = DryingQuestion.thickness.options[2]
     let thick = DryingResult(options: thickOptions, catalogColors: [phthalo])
-    check(thick.touchDays == 13, "厚塗りの計算が合わない: \(thick.touchDays) 条件 \(thick.conditionSummary) 係数 \(thick.baseProduct) 標準 \(standard.map { $0.factor })")
+    check(thick.touchDays == 5, "公式Iの色を厚塗りにした計算: \(thick.touchDays)")
+
+    let thickSlow = DryingResult(options: thickOptions, catalogColors: [cadmium])
+    check(thickSlow.touchDays == 13, "公式IVの色を厚塗りにした計算: \(thickSlow.touchDays)")
 
     // メーカー係数はカタログ色を選ばないときだけ効く
     let kusakabe = DryingResult(options: standard).withManufacturer(.kusakabe)
