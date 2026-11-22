@@ -4,3 +4,5 @@ DerivedData/
 *.xcworkspace
 .DS_Store
 xcuserdata/
+.tmp/
+__pycache__/

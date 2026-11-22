@@ -1,0 +1,2791 @@
+{
+ "source": "ホルベイン画材 油絵具カタログ HA-2611",
+ "version": "2026年11月2日現在",
+ "prices": {
+  "10ml": {
+   "A": 330,
+   "B": 374
+  },
+  "20ml": {
+   "A": 550,
+   "B": 605,
+   "C": 770,
+   "D": 1430,
+   "E": 2310,
+   "H": 2530,
+   "I": 5060,
+   "L": 3300
+  },
+  "40ml": {
+   "A": 990,
+   "B": 1100,
+   "C": 1430,
+   "D": 2530,
+   "E": 4070,
+   "H": 4620,
+   "I": 8580
+  },
+  "110ml": {
+   "A": 2310,
+   "B": 2530,
+   "C": 3300,
+   "D": 5720,
+   "E": 9350,
+   "H": 10780
+  }
+ },
+ "colors": [
+  {
+   "ja": "クリムソン レーキ",
+   "family": "赤",
+   "traditional": "",
+   "en": "CRIMSON LAKE",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "透明",
+   "toxicity": "",
+   "pigments": [
+    "PR177",
+    "PR254"
+   ],
+   "refs10": [
+    "HH001"
+   ],
+   "refs20": [
+    "H001"
+   ],
+   "refs40_110": [
+    "H201",
+    "HH201"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "カーマイン",
+   "family": "赤",
+   "traditional": "",
+   "en": "CARMINE",
+   "series": "B",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "透明",
+   "toxicity": "",
+   "pigments": [
+    "PR177",
+    "PR254"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H002"
+   ],
+   "refs40_110": [
+    "H202",
+    "HH202"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ローズ マダー",
+   "family": "赤",
+   "traditional": "",
+   "en": "ROSE MADDER",
+   "series": "B",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "透明",
+   "toxicity": "",
+   "pigments": [
+    "PR177",
+    "PR254"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H004"
+   ],
+   "refs40_110": [
+    "H204",
+    "HH204"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ピロール レッド",
+   "family": "赤",
+   "traditional": "",
+   "en": "PYRROLE RED",
+   "series": "B",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PR254"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H028"
+   ],
+   "refs40_110": [
+    "H228",
+    "HH228"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ピロール レッド トランスペアレント",
+   "family": "赤",
+   "traditional": "",
+   "en": "PYRROLE RED TRANSPARENT",
+   "series": "B",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "透明",
+   "toxicity": "",
+   "pigments": [
+    "PR254"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H029"
+   ],
+   "refs40_110": [
+    "H229"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "カドミウム レッド",
+   "family": "赤",
+   "traditional": "",
+   "en": "CADMIUM RED",
+   "series": "H",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "不透明",
+   "toxicity": "",
+   "pigments": [
+    "PR108"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H007"
+   ],
+   "refs40_110": [
+    "H207",
+    "HH207"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "カドミウム レッド ディープ",
+   "family": "赤",
+   "traditional": "",
+   "en": "CADMIUM RED DEEP",
+   "series": "H",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "不透明",
+   "toxicity": "",
+   "pigments": [
+    "PR108"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H009"
+   ],
+   "refs40_110": [
+    "H209"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "カドミウム レッド パープル",
+   "family": "赤",
+   "traditional": "",
+   "en": "CADMIUM RED PURPLE",
+   "series": "H",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "不透明",
+   "toxicity": "",
+   "pigments": [
+    "PR108"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H011"
+   ],
+   "refs40_110": [
+    "H211"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "バーミリオン",
+   "family": "赤",
+   "traditional": "",
+   "en": "VERMILION",
+   "series": "I",
+   "permanency": 1,
+   "admix": "",
+   "dryingClass": "Ⅲ",
+   "dryingDays": 4,
+   "opacity": "不透明",
+   "toxicity": "",
+   "pigments": [
+    "PR106"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H015"
+   ],
+   "refs40_110": [
+    "H215"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "バーミリオン ヒュー",
+   "family": "赤",
+   "traditional": "",
+   "en": "VERMILION HUE",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY139",
+    "PO73",
+    "PR254"
+   ],
+   "refs10": [
+    "HH018"
+   ],
+   "refs20": [
+    "H018"
+   ],
+   "refs40_110": [
+    "H218",
+    "HH218"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ブライト レッド",
+   "family": "赤",
+   "traditional": "",
+   "en": "BRIGHT RED",
+   "series": "B",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PR254"
+   ],
+   "refs10": [
+    "HH022"
+   ],
+   "refs20": [
+    "H022"
+   ],
+   "refs40_110": [
+    "H222",
+    "HH222"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "キナクリドン レッド",
+   "family": "赤",
+   "traditional": "",
+   "en": "QUINACRIDONE RED",
+   "series": "D",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "透明",
+   "toxicity": "",
+   "pigments": [
+    "PV19"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H020"
+   ],
+   "refs40_110": [
+    "H220",
+    "HH220"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "キナクリドン オペラ",
+   "family": "赤",
+   "traditional": "",
+   "en": "QUINACRIDONE OPERA",
+   "series": "C",
+   "permanency": 1,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "BV10",
+    "PR122"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H127"
+   ],
+   "refs40_110": [
+    "H327"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ブリリアント ピンク",
+   "family": "赤",
+   "traditional": "",
+   "en": "BRILLIANT PINK",
+   "series": "B",
+   "permanency": 1,
+   "admix": "",
+   "dryingClass": "Ⅲ",
+   "dryingDays": 4,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PR188",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H021"
+   ],
+   "refs40_110": [
+    "H221",
+    "HH221"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "シェル ピンク",
+   "family": "赤",
+   "traditional": "",
+   "en": "SHELL PINK",
+   "series": "B",
+   "permanency": 1,
+   "admix": "",
+   "dryingClass": "Ⅲ",
+   "dryingDays": 4,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PR188",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H026"
+   ],
+   "refs40_110": [
+    "H226",
+    "HH226"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "カドミウム オレンジ",
+   "family": "橙",
+   "traditional": "",
+   "en": "CADMIUM ORANGE",
+   "series": "E",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "不透明",
+   "toxicity": "",
+   "pigments": [
+    "PO20"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H057"
+   ],
+   "refs40_110": [
+    "H257",
+    "HH257"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "パーマネント オレンジ",
+   "family": "橙",
+   "traditional": "",
+   "en": "PERMANENT ORANGE",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY139",
+    "PR254"
+   ],
+   "refs10": [
+    "HH046"
+   ],
+   "refs20": [
+    "H046"
+   ],
+   "refs40_110": [
+    "H246",
+    "HH246"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ピロール オレンジ",
+   "family": "橙",
+   "traditional": "",
+   "en": "PYRROLE ORANGE",
+   "series": "B",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PO73"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H062"
+   ],
+   "refs40_110": [
+    "H262",
+    "HH262"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ネイプルス イエロー",
+   "family": "黄",
+   "traditional": "",
+   "en": "NAPLES YELLOW",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅲ",
+   "dryingDays": 4,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY35",
+    "PY42",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H030"
+   ],
+   "refs40_110": [
+    "H230",
+    "HH230"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "アイボリ ホワイト",
+   "family": "黄",
+   "traditional": "",
+   "en": "IVORY WHITE",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅲ",
+   "dryingDays": 4,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY42",
+    "PY53",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H061"
+   ],
+   "refs40_110": [
+    "H261",
+    "HH261"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ジョーン ブリヤン No.2",
+   "family": "黄",
+   "traditional": "",
+   "en": "JAUNE BRILLANT No.2",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PO20",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H034"
+   ],
+   "refs40_110": [
+    "H234",
+    "HH234"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ジョーン ブリヤン No.3",
+   "family": "黄",
+   "traditional": "",
+   "en": "JAUNE BRILLANT No.3",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PO20",
+    "PW6"
+   ],
+   "refs10": [
+    "HH035"
+   ],
+   "refs20": [
+    "H035"
+   ],
+   "refs40_110": [
+    "H235",
+    "HH235"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "レモン イエロー",
+   "family": "黄",
+   "traditional": "",
+   "en": "LEMON YELLOW",
+   "series": "B",
+   "permanency": 2,
+   "admix": "",
+   "dryingClass": "Ⅲ",
+   "dryingDays": 4,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY184",
+    "PW6"
+   ],
+   "refs10": [
+    "HH037"
+   ],
+   "refs20": [
+    "H037"
+   ],
+   "refs40_110": [
+    "H237",
+    "HH237"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "イエロー オーカー",
+   "family": "黄",
+   "traditional": "",
+   "en": "YELLOW OCHRE",
+   "series": "A",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY42"
+   ],
+   "refs10": [
+    "HH040"
+   ],
+   "refs20": [
+    "H040"
+   ],
+   "refs40_110": [
+    "H240",
+    "HH240"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ポリアゾ イエロー",
+   "family": "黄",
+   "traditional": "",
+   "en": "POLYAZO YELLOW",
+   "series": "C",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "透明",
+   "toxicity": "",
+   "pigments": [
+    "PY128"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H066"
+   ],
+   "refs40_110": [
+    "H266"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "イミダゾロン イエロー",
+   "family": "黄",
+   "traditional": "",
+   "en": "IMIDAZOLONE YELLOW",
+   "series": "B",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "PY154"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H067"
+   ],
+   "refs40_110": [
+    "H267",
+    "HH267"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "パーマネント イエロー レモン",
+   "family": "黄",
+   "traditional": "",
+   "en": "PERMANENT YELLOW LEMON",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY138",
+    "PY184"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H043"
+   ],
+   "refs40_110": [
+    "H243",
+    "HH243"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "パーマネント イエロー ライト",
+   "family": "黄",
+   "traditional": "",
+   "en": "PERMANENT YELLOW LIGHT",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY151",
+    "PY139"
+   ],
+   "refs10": [
+    "HH044"
+   ],
+   "refs20": [
+    "H044"
+   ],
+   "refs40_110": [
+    "H244",
+    "HH244"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "パーマネント イエロー",
+   "family": "黄",
+   "traditional": "",
+   "en": "PERMANENT YELLOW",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY151",
+    "PY139"
+   ],
+   "refs10": [
+    "HH058"
+   ],
+   "refs20": [
+    "H058"
+   ],
+   "refs40_110": [
+    "H258",
+    "HH258"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "オーレオリン",
+   "family": "黄",
+   "traditional": "",
+   "en": "AUREOLIN",
+   "series": "E",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅲ",
+   "dryingDays": 4,
+   "opacity": "半透明",
+   "toxicity": "Co",
+   "pigments": [
+    "PY40"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H048"
+   ],
+   "refs40_110": [
+    "H248"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "カドミウム イエロー レモン",
+   "family": "黄",
+   "traditional": "",
+   "en": "CADMIUM YELLOW LEMON",
+   "series": "E",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY35"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H049"
+   ],
+   "refs40_110": [
+    "H249"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "カドミウム イエロー",
+   "family": "黄",
+   "traditional": "",
+   "en": "CADMIUM YELLOW",
+   "series": "E",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "不透明",
+   "toxicity": "",
+   "pigments": [
+    "PO20",
+    "PY35"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H052"
+   ],
+   "refs40_110": [
+    "H252",
+    "HH252"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ニッケル アゾ イエロー",
+   "family": "黄",
+   "traditional": "",
+   "en": "NICKEL AZO YELLOW",
+   "series": "C",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "透明",
+   "toxicity": "",
+   "pigments": [
+    "PY150"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H068"
+   ],
+   "refs40_110": [
+    "H268"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "イソインドリノン イエロー",
+   "family": "黄",
+   "traditional": "",
+   "en": "ISOINDOLINONE YELLOW",
+   "series": "C",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "透明",
+   "toxicity": "",
+   "pigments": [
+    "PY110"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H069"
+   ],
+   "refs40_110": [
+    "H269"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "グリニッシュ イエロー",
+   "family": "黄",
+   "traditional": "",
+   "en": "GREENISH YELLOW",
+   "series": "C",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY17",
+    "PG7",
+    "PR83"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H047"
+   ],
+   "refs40_110": [
+    "H247",
+    "HH247"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ビリジャン",
+   "family": "緑",
+   "traditional": "",
+   "en": "VIRIDIAN",
+   "series": "H",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "PG18"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H070"
+   ],
+   "refs40_110": [
+    "H270",
+    "HH270"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ビリジャン ヒュー",
+   "family": "緑",
+   "traditional": "",
+   "en": "VIRIDIAN HUE",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "PG7"
+   ],
+   "refs10": [
+    "HH071"
+   ],
+   "refs20": [
+    "H071"
+   ],
+   "refs40_110": [
+    "H271",
+    "HH271"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "フタロ グリーン",
+   "family": "緑",
+   "traditional": "",
+   "en": "PHTHALO GREEN",
+   "series": "B",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "透明",
+   "toxicity": "",
+   "pigments": [
+    "PG7"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H094"
+   ],
+   "refs40_110": [
+    "H294",
+    "HH294"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "エメラルド グリーン ノーバ",
+   "family": "緑",
+   "traditional": "",
+   "en": "EMERALD GREEN NOVA",
+   "series": "B",
+   "permanency": 2,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY184",
+    "PG7",
+    "PW6"
+   ],
+   "refs10": [
+    "HH074"
+   ],
+   "refs20": [
+    "H074"
+   ],
+   "refs40_110": [
+    "H274",
+    "HH274"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "テール ベルト",
+   "family": "緑",
+   "traditional": "",
+   "en": "TERRE VERTE",
+   "series": "A",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅲ",
+   "dryingDays": 4,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PG23"
+   ],
+   "refs10": [
+    "HH075"
+   ],
+   "refs20": [
+    "H075"
+   ],
+   "refs40_110": [
+    "H275",
+    "HH275"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "サップ グリーン",
+   "family": "緑",
+   "traditional": "",
+   "en": "SAP GREEN",
+   "series": "B",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "透明",
+   "toxicity": "",
+   "pigments": [
+    "PY150",
+    "PG7",
+    "PR177"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H076"
+   ],
+   "refs40_110": [
+    "H276",
+    "HH276"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "パーマネント グリーン ライト",
+   "family": "緑",
+   "traditional": "",
+   "en": "PERMANENT GREEN LIGHT",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY151",
+    "PG7"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H077"
+   ],
+   "refs40_110": [
+    "H277",
+    "HH277"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "パーマネント グリーン ペール",
+   "family": "緑",
+   "traditional": "",
+   "en": "PERMANENT GREEN PALE",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY151",
+    "PG7"
+   ],
+   "refs10": [
+    "HH078"
+   ],
+   "refs20": [
+    "H078"
+   ],
+   "refs40_110": [
+    "H278",
+    "HH278"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "パーマネント グリーン",
+   "family": "緑",
+   "traditional": "",
+   "en": "PERMANENT GREEN",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "PY151",
+    "PY110",
+    "PB15"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H079"
+   ],
+   "refs40_110": [
+    "H279",
+    "HH279"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "パーマネント グリーン ディープ",
+   "family": "緑",
+   "traditional": "",
+   "en": "PERMANENT GREEN DEEP",
+   "series": "A",
+   "permanency": 2,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "PY151",
+    "PY110",
+    "PB15"
+   ],
+   "refs10": [
+    "HH080"
+   ],
+   "refs20": [
+    "H080"
+   ],
+   "refs40_110": [
+    "H280",
+    "HH280"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "カドミウム グリーン ライト",
+   "family": "緑",
+   "traditional": "",
+   "en": "CADMIUM GREEN LIGHT",
+   "series": "D",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY35",
+    "PG18"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H096"
+   ],
+   "refs40_110": [
+    "H296"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "カドミウム グリーン",
+   "family": "緑",
+   "traditional": "",
+   "en": "CADMIUM GREEN",
+   "series": "E",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY35",
+    "PG18"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H082"
+   ],
+   "refs40_110": [
+    "H282",
+    "HH282"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ペリレン グリーン",
+   "family": "緑",
+   "traditional": "",
+   "en": "PERYLENE GREEN",
+   "series": "D",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "PBk31"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H100"
+   ],
+   "refs40_110": [
+    "H300"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "オキサイド オブ クロミウム",
+   "family": "緑",
+   "traditional": "",
+   "en": "OXIDE OF CHROMIUM",
+   "series": "B",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "不透明",
+   "toxicity": "",
+   "pigments": [
+    "PG17"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H088"
+   ],
+   "refs40_110": [
+    "H288",
+    "HH288"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "シナバー グリーン",
+   "family": "緑",
+   "traditional": "",
+   "en": "CINNABAR GREEN",
+   "series": "B",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY154",
+    "PY42",
+    "PY53",
+    "PB15"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H092"
+   ],
+   "refs40_110": [
+    "H292",
+    "HH292"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "シナバー グリーン ライト",
+   "family": "緑",
+   "traditional": "",
+   "en": "CINNABAR GREEN LIGHT",
+   "series": "B",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY154",
+    "PY119",
+    "PG7",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H091"
+   ],
+   "refs40_110": [
+    "H291",
+    "HH291"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "コンポーズ グリーン",
+   "family": "緑",
+   "traditional": "",
+   "en": "COMPOSE GREEN",
+   "series": "C",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY35",
+    "PG18",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H084"
+   ],
+   "refs40_110": [
+    "H284"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "コバルト ブルー",
+   "family": "青",
+   "traditional": "",
+   "en": "COBALT BLUE",
+   "series": "H",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PB28"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H101"
+   ],
+   "refs40_110": [
+    "H301",
+    "HH301"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "コバルト ブルー ヒュー",
+   "family": "青",
+   "traditional": "",
+   "en": "COBALT BLUE HUE",
+   "series": "A",
+   "permanency": 3,
+   "admix": "N",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PB15",
+    "PB29",
+    "PW6"
+   ],
+   "refs10": [
+    "HH104"
+   ],
+   "refs20": [
+    "H104"
+   ],
+   "refs40_110": [
+    "H304",
+    "HH304"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "セルリアン ブルー",
+   "family": "青",
+   "traditional": "",
+   "en": "CERULEAN BLUE",
+   "series": "H",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅲ",
+   "dryingDays": 4,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PB35"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H105"
+   ],
+   "refs40_110": [
+    "H305",
+    "HH305"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "セルリアン ブルー ヒュー",
+   "family": "青",
+   "traditional": "",
+   "en": "CERULEAN BLUE HUE",
+   "series": "A",
+   "permanency": 2,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PB15",
+    "PW6"
+   ],
+   "refs10": [
+    "HH106"
+   ],
+   "refs20": [
+    "H106"
+   ],
+   "refs40_110": [
+    "H306",
+    "HH306"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ウルトラマリン ライト",
+   "family": "青",
+   "traditional": "",
+   "en": "ULTRAMARINE LIGHT",
+   "series": "A",
+   "permanency": 3,
+   "admix": "N",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "PB29"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H107"
+   ],
+   "refs40_110": [
+    "H307",
+    "HH307"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ウルトラマリン ブルー",
+   "family": "青",
+   "traditional": "",
+   "en": "ULTRAMARINE BLUE",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅲ",
+   "dryingDays": 4,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PB29"
+   ],
+   "refs10": [
+    "HH122"
+   ],
+   "refs20": [
+    "H122"
+   ],
+   "refs40_110": [
+    "H322",
+    "HH322"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ウルトラマリン ディープ",
+   "family": "青",
+   "traditional": "",
+   "en": "ULTRAMARINE DEEP",
+   "series": "A",
+   "permanency": 3,
+   "admix": "N",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "PB29"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H108"
+   ],
+   "refs40_110": [
+    "H308",
+    "HH308"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "マンガニーズ ブルー ノーバ",
+   "family": "青",
+   "traditional": "",
+   "en": "MANGANESE BLUE NOVA",
+   "series": "B",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "PB28",
+    "PB15"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H123"
+   ],
+   "refs40_110": [
+    "H323",
+    "HH323"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "バヂター ブルー",
+   "family": "青",
+   "traditional": "",
+   "en": "VERDITER BLUE",
+   "series": "D",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅲ",
+   "dryingDays": 4,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PB28",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H110"
+   ],
+   "refs40_110": [
+    "H310"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "コンポーズ ブルー",
+   "family": "青",
+   "traditional": "",
+   "en": "COMPOSE BLUE",
+   "series": "A",
+   "permanency": 2,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PB15",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H111"
+   ],
+   "refs40_110": [
+    "H311",
+    "HH311"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "プルシャン ブルー",
+   "family": "青",
+   "traditional": "",
+   "en": "PRUSSIAN BLUE",
+   "series": "A",
+   "permanency": 2,
+   "admix": "",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PB27"
+   ],
+   "refs10": [
+    "HH112"
+   ],
+   "refs20": [
+    "H112"
+   ],
+   "refs40_110": [
+    "H312",
+    "HH312"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "フタロ ブルー",
+   "family": "青",
+   "traditional": "",
+   "en": "PHTHALO BLUE",
+   "series": "B",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "透明",
+   "toxicity": "",
+   "pigments": [
+    "PB15"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H124"
+   ],
+   "refs40_110": [
+    "H324",
+    "HH324"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "インダンスレン ブルー",
+   "family": "青",
+   "traditional": "",
+   "en": "INDANTHRENE BLUE",
+   "series": "D",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "透明",
+   "toxicity": "",
+   "pigments": [
+    "PB60"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H125"
+   ],
+   "refs40_110": [
+    "H325"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "インジゴ",
+   "family": "青",
+   "traditional": "",
+   "en": "INDIGO",
+   "series": "B",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅲ",
+   "dryingDays": 4,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "PB15",
+    "PBk7",
+    "PR122"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H114"
+   ],
+   "refs40_110": [
+    "H314",
+    "HH314"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "コバルト ターコイズ",
+   "family": "青",
+   "traditional": "",
+   "en": "COBALT TURQUOISE",
+   "series": "E",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PG50"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H116"
+   ],
+   "refs40_110": [
+    "H316"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ターコイズ ブルー",
+   "family": "青",
+   "traditional": "",
+   "en": "TURQUOISE BLUE",
+   "series": "B",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅲ",
+   "dryingDays": 4,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PB28",
+    "PG7",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H115"
+   ],
+   "refs40_110": [
+    "H315",
+    "HH315"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ホリゾン ブルー",
+   "family": "青",
+   "traditional": "",
+   "en": "HORIZON BLUE",
+   "series": "A",
+   "permanency": 2,
+   "admix": "",
+   "dryingClass": "Ⅲ",
+   "dryingDays": 4,
+   "opacity": "不透明",
+   "toxicity": "",
+   "pigments": [
+    "PB15",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H117"
+   ],
+   "refs40_110": [
+    "H317",
+    "HH317"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ミスティ ブルー",
+   "family": "青",
+   "traditional": "",
+   "en": "MISTY BLUE",
+   "series": "A",
+   "permanency": 2,
+   "admix": "N",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PB29",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H118"
+   ],
+   "refs40_110": [
+    "H318",
+    "HH318"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "コバルト バイオレット",
+   "family": "紫",
+   "traditional": "",
+   "en": "COBALT VIOLET",
+   "series": "H",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "半透明",
+   "toxicity": "Co",
+   "pigments": [
+    "PV47"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H129"
+   ],
+   "refs40_110": [
+    "H329"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "コバルト バイオレット ライト ヒュー",
+   "family": "紫",
+   "traditional": "",
+   "en": "COBALT VIOLET LIGHT HUE",
+   "series": "B",
+   "permanency": 1,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PR122",
+    "PB29",
+    "PW6"
+   ],
+   "refs10": [
+    "HH132"
+   ],
+   "refs20": [
+    "H132"
+   ],
+   "refs40_110": [
+    "H332",
+    "HH332"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "モーブ",
+   "family": "紫",
+   "traditional": "",
+   "en": "MAUVE",
+   "series": "B",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "透明",
+   "toxicity": "",
+   "pigments": [
+    "PB29",
+    "PR122"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H135"
+   ],
+   "refs40_110": [
+    "H335",
+    "HH335"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ジオキサジン バイオレット",
+   "family": "紫",
+   "traditional": "",
+   "en": "DIOXAZINE VIOLET",
+   "series": "C",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "透明",
+   "toxicity": "",
+   "pigments": [
+    "PV23"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H138"
+   ],
+   "refs40_110": [
+    "H338",
+    "HH338"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "キナクリドン マゼンタ",
+   "family": "紫",
+   "traditional": "",
+   "en": "QUINACRIDONE MAGENTA",
+   "series": "C",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "透明",
+   "toxicity": "",
+   "pigments": [
+    "PR122"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H137"
+   ],
+   "refs40_110": [
+    "H337",
+    "HH337"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ローズ バイオレット",
+   "family": "紫",
+   "traditional": "",
+   "en": "ROSE VIOLET",
+   "series": "B",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "PR122",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H136"
+   ],
+   "refs40_110": [
+    "H336"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ライト マゼンタ",
+   "family": "紫",
+   "traditional": "",
+   "en": "LIGHT MAGENTA",
+   "series": "B",
+   "permanency": 2,
+   "admix": "",
+   "dryingClass": "Ⅲ",
+   "dryingDays": 4,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PV19",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H139"
+   ],
+   "refs40_110": [
+    "H339",
+    "HH339"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ライト レッド",
+   "family": "茶・黒",
+   "traditional": "",
+   "en": "LIGHT RED",
+   "series": "A",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "不透明",
+   "toxicity": "",
+   "pigments": [
+    "PR101"
+   ],
+   "refs10": [
+    "HH140"
+   ],
+   "refs20": [
+    "H140"
+   ],
+   "refs40_110": [
+    "H340",
+    "HH340"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ロー アンバー",
+   "family": "茶・黒",
+   "traditional": "",
+   "en": "RAW UMBER",
+   "series": "A",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PBr7"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H142"
+   ],
+   "refs40_110": [
+    "H342",
+    "HH342"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ロー シェンナ",
+   "family": "茶・黒",
+   "traditional": "",
+   "en": "RAW SIENNA",
+   "series": "A",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "PY42",
+    "PBr7"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H143"
+   ],
+   "refs40_110": [
+    "H343",
+    "HH343"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "バーント アンバー",
+   "family": "茶・黒",
+   "traditional": "",
+   "en": "BURNT UMBER",
+   "series": "A",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PBr7",
+    "PR101"
+   ],
+   "refs10": [
+    "HH144"
+   ],
+   "refs20": [
+    "H144"
+   ],
+   "refs40_110": [
+    "H344",
+    "HH344"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "バーント シェンナ",
+   "family": "茶・黒",
+   "traditional": "",
+   "en": "BURNT SIENNA",
+   "series": "A",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PBr7"
+   ],
+   "refs10": [
+    "HH145"
+   ],
+   "refs20": [
+    "H145"
+   ],
+   "refs40_110": [
+    "H345",
+    "HH345"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "インデアン レッド",
+   "family": "茶・黒",
+   "traditional": "",
+   "en": "INDIAN RED",
+   "series": "A",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "不透明",
+   "toxicity": "",
+   "pigments": [
+    "PR101"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H146"
+   ],
+   "refs40_110": [
+    "H346"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "トランスペアレント ブラウン オキサイド",
+   "family": "茶・黒",
+   "traditional": "",
+   "en": "TRANSPARENT BROWN OXIDE",
+   "series": "B",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "透明",
+   "toxicity": "",
+   "pigments": [
+    "PR101"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H161"
+   ],
+   "refs40_110": [
+    "H361"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "セピア",
+   "family": "茶・黒",
+   "traditional": "",
+   "en": "SEPIA",
+   "series": "A",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PBr25",
+    "PBk7"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H151"
+   ],
+   "refs40_110": [
+    "H351",
+    "HH351"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "バンダイキ ブラウン",
+   "family": "茶・黒",
+   "traditional": "",
+   "en": "VANDYKE BROWN",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "PBr7",
+    "PBr25",
+    "PBk7"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H152"
+   ],
+   "refs40_110": [
+    "H352",
+    "HH352"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ブルー ブラック",
+   "family": "茶・黒",
+   "traditional": "",
+   "en": "BLUE BLACK",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PB29",
+    "PBk7"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H157"
+   ],
+   "refs40_110": [
+    "H357"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ピーチ ブラック",
+   "family": "茶・黒",
+   "traditional": "",
+   "en": "PEACH BLACK",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PBk1"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H153"
+   ],
+   "refs40_110": [
+    "H353",
+    "HH353"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "アイボリ ブラック",
+   "family": "茶・黒",
+   "traditional": "",
+   "en": "IVORY BLACK",
+   "series": "A",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "不透明",
+   "toxicity": "",
+   "pigments": [
+    "PBk9",
+    "PBk7"
+   ],
+   "refs10": [
+    "HH154"
+   ],
+   "refs20": [
+    "H154"
+   ],
+   "refs40_110": [
+    "H354",
+    "HH354"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ランプ ブラック",
+   "family": "茶・黒",
+   "traditional": "",
+   "en": "LAMP BLACK",
+   "series": "A",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PBk6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H156"
+   ],
+   "refs40_110": [
+    "H356"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ブルー グレイ",
+   "family": "灰",
+   "traditional": "",
+   "en": "BLUE GREY",
+   "series": "A",
+   "permanency": 2,
+   "admix": "N",
+   "dryingClass": "Ⅲ",
+   "dryingDays": 4,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PB29",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H170"
+   ],
+   "refs40_110": [
+    "H370",
+    "HH370"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "バイオレット グレイ",
+   "family": "灰",
+   "traditional": "",
+   "en": "VIOLET GREY",
+   "series": "A",
+   "permanency": 2,
+   "admix": "N",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PV15",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H174"
+   ],
+   "refs40_110": [
+    "H374",
+    "HH374"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ローズ グレイ",
+   "family": "灰",
+   "traditional": "",
+   "en": "ROSE GREY",
+   "series": "A",
+   "permanency": 4,
+   "admix": "",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PR101",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H176"
+   ],
+   "refs40_110": [
+    "H376",
+    "HH376"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "モノクローム チント ウォーム",
+   "family": "灰",
+   "traditional": "",
+   "en": "MONOCHROME TINT WARM",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅲ",
+   "dryingDays": 4,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY119",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H178"
+   ],
+   "refs40_110": [
+    "H378",
+    "HH378"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "モノクローム チント クール",
+   "family": "灰",
+   "traditional": "",
+   "en": "MONOCHROME TINT COOL",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅲ",
+   "dryingDays": 4,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PBk11",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H179"
+   ],
+   "refs40_110": [
+    "H379",
+    "HH379"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ニュートラル グレイ",
+   "family": "灰",
+   "traditional": "",
+   "en": "NEUTRAL GREY",
+   "series": "A",
+   "permanency": 2,
+   "admix": "",
+   "dryingClass": "Ⅲ",
+   "dryingDays": 4,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PY42",
+    "PBk9",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H169"
+   ],
+   "refs40_110": [
+    "H369",
+    "HH369"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "グレイ オブ グレイ",
+   "family": "灰",
+   "traditional": "",
+   "en": "GREY OF GREY",
+   "series": "A",
+   "permanency": 2,
+   "admix": "",
+   "dryingClass": "Ⅳ",
+   "dryingDays": 5,
+   "opacity": "半不透明",
+   "toxicity": "Co",
+   "pigments": [
+    "PV47",
+    "PBk1",
+    "PW6"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H173"
+   ],
+   "refs40_110": [
+    "H373",
+    "HH373"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ペインズ グレイ",
+   "family": "灰",
+   "traditional": "",
+   "en": "PAYNE'S GREY",
+   "series": "A",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "半不透明",
+   "toxicity": "",
+   "pigments": [
+    "PB29",
+    "PBk11"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H180"
+   ],
+   "refs40_110": [
+    "H380"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "ゴールド",
+   "family": "金・銀",
+   "traditional": "",
+   "en": "GOLD",
+   "series": "E",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "",
+   "toxicity": "",
+   "pigments": [
+    "PW20",
+    "PM1"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H190"
+   ],
+   "refs40_110": [
+    "H390"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "シルバー",
+   "family": "金・銀",
+   "traditional": "",
+   "en": "SILVER",
+   "series": "E",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "",
+   "toxicity": "",
+   "pigments": [
+    "PM1"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H191"
+   ],
+   "refs40_110": [
+    "H391"
+   ],
+   "antique": false
+  },
+  {
+   "ja": "アンティーク レッド",
+   "family": "アンティーク",
+   "traditional": "紅辰砂",
+   "en": "ANTIQUE RED",
+   "series": "L",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "岩絵具"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H181"
+   ],
+   "refs40_110": [],
+   "antique": true
+  },
+  {
+   "ja": "アンティーク イエロー No.1",
+   "family": "アンティーク",
+   "traditional": "樺茶",
+   "en": "ANTIQUE YELLOW No.1",
+   "series": "L",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "岩絵具"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H183"
+   ],
+   "refs40_110": [],
+   "antique": true
+  },
+  {
+   "ja": "アンティーク イエロー No.2",
+   "family": "アンティーク",
+   "traditional": "黄茶緑",
+   "en": "ANTIQUE YELLOW No.2",
+   "series": "L",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "岩絵具"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H184"
+   ],
+   "refs40_110": [],
+   "antique": true
+  },
+  {
+   "ja": "アンティーク グリーン",
+   "family": "アンティーク",
+   "traditional": "裏葉緑青",
+   "en": "ANTIQUE GREEN",
+   "series": "L",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "岩絵具"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H185"
+   ],
+   "refs40_110": [],
+   "antique": true
+  },
+  {
+   "ja": "アンティーク ブルー No.1",
+   "family": "アンティーク",
+   "traditional": "白群",
+   "en": "ANTIQUE BLUE No.1",
+   "series": "L",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "岩絵具"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H187"
+   ],
+   "refs40_110": [],
+   "antique": true
+  },
+  {
+   "ja": "アンティーク ブルー No.2",
+   "family": "アンティーク",
+   "traditional": "浅黄群青",
+   "en": "ANTIQUE BLUE No.2",
+   "series": "L",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅱ",
+   "dryingDays": 3,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "岩絵具"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H188"
+   ],
+   "refs40_110": [],
+   "antique": true
+  },
+  {
+   "ja": "アンティーク ブルー No.3",
+   "family": "アンティーク",
+   "traditional": "藍群青",
+   "en": "ANTIQUE BLUE No.3",
+   "series": "L",
+   "permanency": 3,
+   "admix": "",
+   "dryingClass": "Ⅰ",
+   "dryingDays": 2,
+   "opacity": "半透明",
+   "toxicity": "",
+   "pigments": [
+    "岩絵具"
+   ],
+   "refs10": [],
+   "refs20": [
+    "H189"
+   ],
+   "refs40_110": [],
+   "antique": true
+  }
+ ]
+}

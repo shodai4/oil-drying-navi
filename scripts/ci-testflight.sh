@@ -17,6 +17,11 @@ echo "== Toolchain"
 xcodebuild -version
 ls -d /Applications/Xcode*.app || true
 
+echo "== Catalog self test（公式カタログ全色データと乾燥計算）"
+swiftc -O -o "$RUNNER_TEMP/catalog-selftest" \
+  Sources/HolbeinCatalog.swift Sources/DryingModel.swift scripts/selftest/main.swift
+"$RUNNER_TEMP/catalog-selftest"
+
 echo "== XcodeGen"
 if ! command -v xcodegen >/dev/null 2>&1; then
   brew install xcodegen

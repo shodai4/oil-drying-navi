@@ -3,197 +3,14 @@ import UIKit
 import EventKit
 import UserNotifications
 
-// MARK: - 係数と計算
-
-struct DryingOption: Identifiable {
-    let label: String
-    let factor: Double
-
-    var id: String { label }
-}
-
-enum DryingQuestion: CaseIterable {
-    case ground
-    case medium
-    case pigment
-    case thickness
-    case environment
-
-    var title: String {
-        switch self {
-        case .ground:
-            return "下地は？"
-        case .medium:
-            return "使った画用液は？"
-        case .pigment:
-            return "主な顔料は？"
-        case .thickness:
-            return "塗りの厚みは？"
-        case .environment:
-            return "部屋の状態は？"
-        }
-    }
-
-    var caption: String {
-        switch self {
-        case .ground:
-            return "下地の吸い込みで、乾く速さが変わる。"
-        case .medium:
-            return "描きながら足した油やメディウム。"
-        case .pigment:
-            return "画面の大部分を占める色で選ぶ。"
-        case .thickness:
-            return "厚いほど、表面が乾いても中が残る。"
-        case .environment:
-            return "気温と湿気、風通し。"
-        }
-    }
-
-    var options: [DryingOption] {
-        switch self {
-        case .ground:
-            return [
-                DryingOption(label: "吸収性（膠・石膏）", factor: 0.7),
-                DryingOption(label: "標準（麻・綿）", factor: 1.0),
-                DryingOption(label: "非吸収（油性）", factor: 1.3)
-            ]
-        case .medium:
-            return [
-                DryingOption(label: "アルキド樹脂", factor: 0.4),
-                DryingOption(label: "リンシード", factor: 1.0),
-                DryingOption(label: "ポピー・スタンド", factor: 1.6),
-                DryingOption(label: "揮発性のみ", factor: 0.3)
-            ]
-        case .pigment:
-            return [
-                DryingOption(label: "速乾（土・コバルト）", factor: 0.6),
-                DryingOption(label: "標準", factor: 1.0),
-                DryingOption(label: "遅乾（白・黒・紅）", factor: 2.0)
-            ]
-        case .thickness:
-            return [
-                DryingOption(label: "薄塗り", factor: 0.6),
-                DryingOption(label: "標準", factor: 1.0),
-                DryingOption(label: "厚塗り", factor: 2.5)
-            ]
-        case .environment:
-            return [
-                DryingOption(label: "寒い・湿気", factor: 1.4),
-                DryingOption(label: "標準", factor: 1.0),
-                DryingOption(label: "暖かい・乾燥", factor: 0.7)
-            ]
-        }
-    }
-}
-
-enum DryingManufacturer: String, CaseIterable, Identifiable {
-    case none
-    case holbein
-    case kusakabe
-    case matsuda
-    case winsorNewton
-    case waterSoluble
-
-    var id: String { rawValue }
-
-    var label: String {
-        switch self {
-        case .none:
-            return "指定なし"
-        case .holbein:
-            return "ホルベイン"
-        case .kusakabe:
-            return "クサカベ"
-        case .matsuda:
-            return "マツダ"
-        case .winsorNewton:
-            return "ウィンザー＆ニュートン"
-        case .waterSoluble:
-            return "水可溶性"
-        }
-    }
-
-    var factor: Double {
-        switch self {
-        case .none:
-            return 1.0
-        case .holbein:
-            return 1.1
-        case .kusakabe:
-            return 0.9
-        case .matsuda:
-            return 0.85
-        case .winsorNewton:
-            return 1.0
-        case .waterSoluble:
-            return 0.85
-        }
-    }
-}
-
-struct DryingResult {
-    let conditions: [String]
-    let baseProduct: Double
-    let manufacturer: DryingManufacturer
-    let hasCrackRisk: Bool
-
-    init(options: [DryingOption], manufacturer: DryingManufacturer = .none) {
-        conditions = options.map { $0.label }
-        baseProduct = options.reduce(1.0) { $0 * $1.factor }
-        self.manufacturer = manufacturer
-
-        let groundFactor = options.first?.factor ?? 1.0
-        let mediumFactor = options.count > 1 ? options[1].factor : 1.0
-        hasCrackRisk = groundFactor < 1.0 && mediumFactor <= 0.3
-    }
-
-    private init(conditions: [String], baseProduct: Double, manufacturer: DryingManufacturer, hasCrackRisk: Bool) {
-        self.conditions = conditions
-        self.baseProduct = baseProduct
-        self.manufacturer = manufacturer
-        self.hasCrackRisk = hasCrackRisk
-    }
-
-    func withManufacturer(_ manufacturer: DryingManufacturer) -> DryingResult {
-        DryingResult(
-            conditions: conditions,
-            baseProduct: baseProduct,
-            manufacturer: manufacturer,
-            hasCrackRisk: hasCrackRisk
-        )
-    }
-
-    var touchDays: Int {
-        max(1, Int((3.0 * baseProduct * manufacturer.factor).rounded()))
-    }
-
-    var overpaintDays: Int {
-        touchDays * 2
-    }
-
-    var varnishDays: Int {
-        min(180, max(30, touchDays * 60))
-    }
-
-    var varnishText: String {
-        let months = (Double(varnishDays) / 30.0 * 2).rounded() / 2
-        let monthText = months == months.rounded()
-            ? "\(Int(months))か月"
-            : "\(Int(months))か月半"
-        return "約\(monthText)（\(varnishDays)日後）"
-    }
-
-    var conditionSummary: String {
-        conditions.joined(separator: " ・ ")
-    }
-}
-
 // MARK: - 画面
 
 struct ContentView: View {
     @State private var step = 0
     @State private var answers: [Int] = []
     @State private var result: DryingResult?
+    @State private var catalogPicks: [HolbeinCatalog.Paint] = []
+    @State private var showingCatalog = false
 
     var body: some View {
         ZStack {
@@ -211,6 +28,11 @@ struct ContentView: View {
             .padding(.bottom, 16)
         }
         .tint(Color.naviAccent)
+        .sheet(isPresented: $showingCatalog) {
+            CatalogView(picks: catalogPicks) { picked in
+                applyCatalog(picked)
+            }
+        }
     }
 
     private var question: DryingQuestion {
@@ -245,10 +67,13 @@ struct ContentView: View {
                     .padding(.top, 6)
 
                 VStack(spacing: 8) {
+                    if step == 2 {
+                        catalogRow
+                    }
                     ForEach(Array(question.options.enumerated()), id: \.element.id) { index, option in
                         OptionRow(
                             label: option.label,
-                            selected: answers.indices.contains(step) && answers[step] == index
+                            selected: answers.indices.contains(step) && answers[step] == index && catalogPicks.isEmpty
                         ) {
                             choose(index)
                         }
@@ -278,7 +103,63 @@ struct ContentView: View {
         .scrollBounceBehavior(.basedOnSize)
     }
 
+    private var catalogRow: some View {
+        Button {
+            showingCatalog = true
+        } label: {
+            HStack(spacing: 12) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("絵具名から選ぶ")
+                        .font(.system(size: 16))
+                        .foregroundStyle(Color.naviInk)
+                    Text(catalogPicks.isEmpty
+                         ? "公式カタログ 全\(HolbeinCatalog.all.count)色から、混色する色を選べる"
+                         : catalogPicks.map { $0.name }.joined(separator: "、"))
+                        .font(.system(size: 12))
+                        .foregroundStyle(catalogPicks.isEmpty ? Color.naviSub : Color.naviAccent)
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(2)
+                }
+                Spacer(minLength: 8)
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 12, weight: .semibold))
+                    .foregroundStyle(Color.naviSub)
+            }
+            .padding(.horizontal, 18)
+            .padding(.vertical, 15)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(
+                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    .fill(Color.naviAccent.opacity(catalogPicks.isEmpty ? 0.04 : 0.12))
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    .strokeBorder(catalogPicks.isEmpty ? Color.naviLine : Color.naviAccent, lineWidth: catalogPicks.isEmpty ? 1 : 1.4)
+            )
+        }
+        .buttonStyle(.plain)
+    }
+
+    private func applyCatalog(_ picks: [HolbeinCatalog.Paint]) {
+        catalogPicks = picks
+        guard !picks.isEmpty else { return }
+        if answers.indices.contains(2) {
+            answers[2] = 1
+        } else {
+            while answers.count < 2 {
+                answers.append(0)
+            }
+            answers.append(1)
+        }
+        if step == 2 {
+            withAnimation(.easeInOut(duration: 0.15)) { step = 3 }
+        }
+    }
+
     private func choose(_ index: Int) {
+        if step == 2 {
+            catalogPicks = []
+        }
         if answers.indices.contains(step) {
             answers[step] = index
         } else {
@@ -310,7 +191,7 @@ struct ContentView: View {
             picked.append(question.options[optionIndex])
         }
         withAnimation(.easeInOut(duration: 0.2)) {
-            result = DryingResult(options: picked)
+            result = DryingResult(options: picked, catalogColors: catalogPicks)
         }
     }
 
@@ -319,6 +200,7 @@ struct ContentView: View {
             result = nil
             step = 0
             answers = []
+            catalogPicks = []
         }
     }
 }
@@ -435,7 +317,10 @@ struct ResultView: View {
 
     private var notesText: String {
         var text = "重ね塗りは約\(shown.overpaintDays)日後、ワニス保護は\(shown.varnishText)。\n条件：\(shown.conditionSummary)"
-        if manufacturer != .none {
+        if !shown.catalogColors.isEmpty {
+            let names = shown.catalogColors.map { "\($0.name)（\($0.dryingText)）" }.joined(separator: "、")
+            text += "\n公式カタログ：\(names)"
+        } else if manufacturer != .none {
             text += "\nメーカー：\(manufacturer.label)"
         }
         return text
@@ -497,6 +382,11 @@ struct ResultView: View {
                 manufacturerRow
 
                 Divider().overlay(Color.naviLine)
+
+                if !shown.catalogColors.isEmpty {
+                    catalogCard
+                    Divider().overlay(Color.naviLine)
+                }
 
                 Text(shown.conditionSummary)
                     .font(.system(size: 12))
@@ -597,16 +487,101 @@ struct ResultView: View {
                 .font(.system(size: 13))
                 .foregroundStyle(Color.naviSub)
             Spacer(minLength: 8)
-            Picker("メーカー", selection: $manufacturer) {
-                ForEach(DryingManufacturer.allCases) { item in
-                    Text(item.label).tag(item)
+            if shown.catalogColors.isEmpty {
+                Picker("メーカー", selection: $manufacturer) {
+                    ForEach(DryingManufacturer.allCases) { item in
+                        Text(item.label).tag(item)
+                    }
                 }
+                .pickerStyle(.menu)
+                .labelsHidden()
+                .font(.system(size: 14))
+            } else {
+                Text("ホルベイン（公式カタログ値）")
+                    .font(.system(size: 14))
+                    .foregroundStyle(Color.naviInk)
             }
-            .pickerStyle(.menu)
-            .labelsHidden()
-            .font(.system(size: 14))
         }
         .padding(.vertical, 4)
+    }
+
+    // MARK: 公式カタログ
+
+    private var catalogCard: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(alignment: .firstTextBaseline) {
+                Text("公式カタログ")
+                    .font(.system(size: 12, weight: .medium))
+                    .foregroundStyle(Color.naviSub)
+                Spacer(minLength: 8)
+                Text(HolbeinCatalog.version)
+                    .font(.system(size: 11))
+                    .foregroundStyle(Color.naviSub)
+            }
+
+            if shown.catalogColors.count > 1, let slowest = shown.slowestColor {
+                Text("いちばん遅い\(slowest.name)（\(slowest.dryingText)）に合わせています。")
+                    .font(.system(size: 12))
+                    .foregroundStyle(Color.naviSub)
+                    .lineSpacing(2)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+
+            ForEach(shown.catalogColors) { color in
+                catalogColorBlock(color)
+            }
+        }
+        .padding(.vertical, 12)
+    }
+
+    private func catalogColorBlock(_ color: HolbeinCatalog.Paint) -> some View {
+        VStack(alignment: .leading, spacing: 5) {
+            HStack(alignment: .firstTextBaseline, spacing: 8) {
+                Text(color.name)
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundStyle(Color.naviInk)
+                Text(color.dryingText)
+                    .font(.system(size: 12))
+                    .foregroundStyle(Color.naviSub)
+                Spacer(minLength: 0)
+            }
+
+            Text(catalogDetailText(color))
+                .font(.system(size: 12))
+                .foregroundStyle(Color.naviSub)
+                .lineSpacing(2)
+                .fixedSize(horizontal: false, vertical: true)
+
+            if color.needsSulfideCaution {
+                Text("硫化物を含むため、シルバーホワイトとの混色は避けてください。")
+                    .font(.system(size: 12))
+                    .foregroundStyle(Color.naviWarn)
+                    .lineSpacing(2)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .padding(.vertical, 6)
+    }
+
+    private func catalogDetailText(_ color: HolbeinCatalog.Paint) -> String {
+        var parts: [String] = []
+        if !color.opacity.isEmpty {
+            parts.append(color.opacity)
+        }
+        if !color.traditional.isEmpty {
+            parts.append(color.traditional)
+        }
+        parts.append("耐光性\(color.permanencyText)")
+        if !color.pigments.isEmpty {
+            parts.append("使用顔料 \(color.pigments.joined(separator: " "))")
+        }
+        if let yen = HolbeinCatalog.price(size: "20ml", series: color.series) {
+            parts.append("20ml \(HolbeinCatalog.yenText(yen))")
+        }
+        if let ref = color.refs20.first {
+            parts.append(ref)
+        }
+        return parts.joined(separator: " ・ ")
     }
 
     private var rowDivider: some View {
