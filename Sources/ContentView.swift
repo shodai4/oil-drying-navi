@@ -86,25 +86,93 @@ enum DryingQuestion: CaseIterable {
     }
 }
 
+enum DryingManufacturer: String, CaseIterable, Identifiable {
+    case none
+    case holbein
+    case kusakabe
+    case matsuda
+    case winsorNewton
+    case waterSoluble
+
+    var id: String { rawValue }
+
+    var label: String {
+        switch self {
+        case .none:
+            return "指定なし"
+        case .holbein:
+            return "ホルベイン"
+        case .kusakabe:
+            return "クサカベ"
+        case .matsuda:
+            return "マツダ"
+        case .winsorNewton:
+            return "ウィンザー＆ニュートン"
+        case .waterSoluble:
+            return "水可溶性"
+        }
+    }
+
+    var factor: Double {
+        switch self {
+        case .none:
+            return 1.0
+        case .holbein:
+            return 1.1
+        case .kusakabe:
+            return 0.9
+        case .matsuda:
+            return 0.85
+        case .winsorNewton:
+            return 1.0
+        case .waterSoluble:
+            return 0.85
+        }
+    }
+}
+
 struct DryingResult {
-    let touchDays: Int
-    let overpaintDays: Int
-    let varnishDays: Int
     let conditions: [String]
+    let baseProduct: Double
+    let manufacturer: DryingManufacturer
     let hasCrackRisk: Bool
 
-    init(options: [DryingOption]) {
+    init(options: [DryingOption], manufacturer: DryingManufacturer = .none) {
         conditions = options.map { $0.label }
-
-        let product = options.reduce(1.0) { $0 * $1.factor }
-        let touch = max(1, Int((3.0 * product).rounded()))
-        touchDays = touch
-        overpaintDays = touch * 2
-        varnishDays = min(180, max(30, touch * 60))
+        baseProduct = options.reduce(1.0) { $0 * $1.factor }
+        self.manufacturer = manufacturer
 
         let groundFactor = options.first?.factor ?? 1.0
         let mediumFactor = options.count > 1 ? options[1].factor : 1.0
         hasCrackRisk = groundFactor < 1.0 && mediumFactor <= 0.3
+    }
+
+    private init(conditions: [String], baseProduct: Double, manufacturer: DryingManufacturer, hasCrackRisk: Bool) {
+        self.conditions = conditions
+        self.baseProduct = baseProduct
+        self.manufacturer = manufacturer
+        self.hasCrackRisk = hasCrackRisk
+    }
+
+    func withManufacturer(_ manufacturer: DryingManufacturer) -> DryingResult {
+        DryingResult(
+            conditions: conditions,
+            baseProduct: baseProduct,
+            manufacturer: manufacturer,
+            hasCrackRisk: hasCrackRisk
+        )
+    }
+
+    var touchDays: Int {
+        max(1, Int((3.0 * baseProduct * manufacturer.factor).rounded()))
+    }
+
+    var overpaintDays: Int {
+        touchDays * 2
+    }
+
+    var varnishDays: Int {
+        min(180, max(30, touchDays * 60))
     }
 
     var varnishText: String {
@@ -353,19 +421,28 @@ struct ResultView: View {
     @State private var status: String?
     @State private var alertKind: ResultAlert?
     @State private var workTitle = ""
+    @State private var manufacturer: DryingManufacturer = .none
     @State private var eventStore = EKEventStore()
     @Environment(\.openURL) private var openURL
+
+    private var shown: DryingResult {
+        result.withManufacturer(manufacturer)
+    }
 
     private var trimmedWorkTitle: String {
         workTitle.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
     private var notesText: String {
-        "重ね塗りは約\(result.overpaintDays)日後、ワニス保護は\(result.varnishText)。\n条件：\(result.conditionSummary)"
+        var text = "重ね塗りは約\(shown.overpaintDays)日後、ワニス保護は\(shown.varnishText)。\n条件：\(shown.conditionSummary)"
+        if manufacturer != .none {
+            text += "\nメーカー：\(manufacturer.label)"
+        }
+        return text
     }
 
     private var reminderDate: Date {
-        Calendar.current.date(byAdding: .day, value: result.touchDays, to: Date()) ?? Date()
+        Calendar.current.date(byAdding: .day, value: shown.touchDays, to: Date()) ?? Date()
     }
 
     private var dayText: String {
@@ -395,7 +472,7 @@ struct ResultView: View {
                     .foregroundStyle(Color.naviSub)
 
                 HStack(alignment: .firstTextBaseline, spacing: 6) {
-                    Text("約\(result.touchDays)")
+                    Text("約\(shown.touchDays)")
                         .font(.system(size: 60, weight: .bold, design: .rounded))
                         .foregroundStyle(Color.naviInk)
                     Text("日")
@@ -411,20 +488,24 @@ struct ResultView: View {
 
                 Divider().overlay(Color.naviLine)
 
-                infoRow(title: "重ね塗りOK", value: "約\(result.overpaintDays)日後")
+                infoRow(title: "重ね塗りOK", value: "約\(shown.overpaintDays)日後")
                 Divider().overlay(Color.naviLine).opacity(0.6)
-                infoRow(title: "ワニス保護OK", value: result.varnishText)
+                infoRow(title: "ワニス保護OK", value: shown.varnishText)
 
                 Divider().overlay(Color.naviLine)
 
-                Text(result.conditionSummary)
+                manufacturerRow
+
+                Divider().overlay(Color.naviLine)
+
+                Text(shown.conditionSummary)
                     .font(.system(size: 12))
                     .foregroundStyle(Color.naviSub)
                     .lineSpacing(3)
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.top, 14)
 
-                if result.hasCrackRisk {
+                if shown.hasCrackRisk {
                     Text("注意：吸収性の下地に揮発性の画用液だけを使うと、油分が吸われてもろくなり、亀裂や剥離の原因になります。")
                         .font(.system(size: 12))
                         .foregroundStyle(Color.naviWarn)
@@ -508,6 +589,24 @@ struct ResultView: View {
         } message: {
             Text(alertKind?.message ?? "")
         }
+    }
+
+    private var manufacturerRow: some View {
+        HStack(spacing: 12) {
+            Text("メーカー")
+                .font(.system(size: 13))
+                .foregroundStyle(Color.naviSub)
+            Spacer(minLength: 8)
+            Picker("メーカー", selection: $manufacturer) {
+                ForEach(DryingManufacturer.allCases) { item in
+                    Text(item.label).tag(item)
+                }
+            }
+            .pickerStyle(.menu)
+            .labelsHidden()
+            .font(.system(size: 14))
+        }
+        .padding(.vertical, 4)
     }
 
     private var rowDivider: some View {
@@ -683,7 +782,7 @@ struct ResultView: View {
             label = "1分後"
         }
 
-        let id = "touch-dry-\(result.touchDays)-\(Int(reminderDate.timeIntervalSince1970))"
+        let id = "touch-dry-\(shown.touchDays)-\(Int(reminderDate.timeIntervalSince1970))"
         center.removePendingNotificationRequests(withIdentifiers: [id])
 
         let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
