@@ -120,7 +120,7 @@ if let cadmium = paint("カドミウム レッド"), let phthalo = paint("フタ
     var thickOptions = standard
     thickOptions[3] = DryingQuestion.thickness.options[2]
     let thick = DryingResult(options: thickOptions, catalogColors: [phthalo])
-    check(thick.touchDays == 13, "厚塗りの計算が合わない: \(thick.touchDays)")
+    check(thick.touchDays == 13, "厚塗りの計算が合わない: \(thick.touchDays) 条件 \(thick.conditionSummary) 係数 \(thick.baseProduct) 標準 \(standard.map { $0.factor })")
 
     // メーカー係数はカタログ色を選ばないときだけ効く
     let kusakabe = DryingResult(options: standard).withManufacturer(.kusakabe)
